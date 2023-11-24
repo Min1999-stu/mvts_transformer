@@ -227,7 +227,7 @@ def collate_unsuperv(data, max_len=None, mask_compensation=False):
         X = compensate_masking(X, target_masks)
 
     padding_masks = padding_mask(torch.tensor(lengths, dtype=torch.int16), max_len=max_len)  # (batch_size, padded_length) boolean tensor, "1" means keep
-    target_masks = ~target_masks  # inverse logic: 0 now means ignore, 1 means predict
+    target_masks = ~target_masks  # inverse logic: 0 now means ignore, 1 means predict  也就是预测之前掩码是0的值
     return X, targets, target_masks, padding_masks, IDs
 
 
