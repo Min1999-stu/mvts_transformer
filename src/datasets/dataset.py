@@ -244,7 +244,7 @@ def noise_mask(X, masking_ratio, lm=3, mode='separate', distribution='geometric'
         distribution: whether each mask sequence element is sampled independently at random, or whether
             sampling follows a markov chain (and thus is stateful), resulting in geometric distributions of
             masked squences of a desired mean length `lm`
-        exclude_feats: iterable of indices corresponding to features to be excluded from masking (i.e. to remain all 1s)
+        exclude_feats: iterable of indices corresponding to features to be excluded from masking (i.e. to remain all 1s)  某个位置的特征不被遮盖
 
     Returns:
         boolean numpy array with the same shape as X, with 0s at places where a feature should be masked
