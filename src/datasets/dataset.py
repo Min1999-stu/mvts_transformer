@@ -237,7 +237,7 @@ def noise_mask(X, masking_ratio, lm=3, mode='separate', distribution='geometric'
     Args:
         X: (seq_length, feat_dim) numpy array of features corresponding to a single sample
         masking_ratio: proportion of seq_length to be masked. At each time step, will also be the proportion of
-            feat_dim that will be masked on average
+            feat_dim that will be masked on average    论文中没提到“At each time step, will also be the proportion of feat_dim that will be masked on average”
         lm: average length of masking subsequences (streaks of 0s). Used only when `distribution` is 'geometric'.
         mode: whether each variable should be masked separately ('separate'), or all variables at a certain positions
             should be masked concurrently ('concurrent')
