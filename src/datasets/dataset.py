@@ -271,7 +271,7 @@ def noise_mask(X, masking_ratio, lm=3, mode='separate', distribution='geometric'
     return mask
 
 
-def geom_noise_mask_single(L, lm, masking_ratio):
+def geom_noise_mask_single(L, lm, masking_ratio):        #重点理解，怎么生成几何分布掩码
     """
     Randomly create a boolean mask of length `L`, consisting of subsequences of average length lm, masking with 0s a `masking_ratio`
     proportion of the sequence L. The length of masking subsequences and intervals follow a geometric distribution.
