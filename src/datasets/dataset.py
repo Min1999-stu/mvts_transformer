@@ -200,7 +200,7 @@ def collate_unsuperv(data, max_len=None, mask_compensation=False):
             where the batch length cannot vary dynamically. Longer sequences are clipped, shorter are padded with 0s
     Returns:
         X: (batch_size, padded_length, feat_dim) torch tensor of masked features (input)
-        targets: (batch_size, padded_length, feat_dim) torch tensor of unmasked features (output)
+        targets: (batch_size, padded_length, feat_dim) torch tensor of unmasked features (output)   为什么是输出？
         target_masks: (batch_size, padded_length, feat_dim) boolean torch tensor
             0 indicates masked values to be predicted, 1 indicates unaffected/"active" feature values
         padding_masks: (batch_size, padded_length) boolean tensor, 1 means keep vector at this position, 0 ignore (padding)
