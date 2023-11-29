@@ -284,6 +284,10 @@ def geom_noise_mask_single(L, lm, masking_ratio):        #重点理解，怎么�
         (L,) boolean numpy array intended to mask ('drop') with 0s a sequence of length L
     """
     keep_mask = np.ones(L, dtype=bool)
+    # p_m的值，如果按几何分布应该是1/(lm+1)，但是假如当前是连续1段要转移状态了，也就是1变成0，变成的这个0，并不是
+    # 通常几何分布实验的第一项，也就是说第二个0才是连续0段几何分布的第一项，那么控制连续0段的均值长度为lm的话，
+    # 连续0段状态转移概率应该是1/(lm-1+1),即1/lm。对于连续1段的状态转移概率计算公式同理。
+    
     p_m = 1 / lm  # probability of each masking sequence stopping. parameter of geometric distribution.
     p_u = p_m * masking_ratio / (1 - masking_ratio)  # probability of each unmasked sequence stopping. parameter of geometric distribution.
     p = [p_m, p_u]
