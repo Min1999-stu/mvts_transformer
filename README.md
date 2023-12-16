@@ -114,6 +114,8 @@ python src/main.py --output_dir experiments --comment "classification from Scrat
 
 Can be used for any downstream task, e.g. regression, classification, imputation.
 
+注意task默认就是imputation，预训练使用imputation任务类型
+
 Make sure that the network architecture parameters of the pretrained model match the parameters of the desired fine-tuned model (e.g. use `--d_model 64` for `SpokenArabicDigits`).
 
 ```bash
