@@ -253,7 +253,7 @@ class Analyzer(object):
 
         accuracy_per_rank = acc_top_k(predictions, y_true)
 
-        row1 = ['k'] + range(1, len(accuracy_per_rank) + 1)
+        row1 = ['k'] + range(1, len(accuracy_per_rank) + 1)    # range()应该用list()包装
         row2 = ['Accuracy'] + list(accuracy_per_rank)
         print(tabulate([row1, row2], tablefmt='orgtbl'))
 
@@ -262,6 +262,8 @@ class Analyzer(object):
 
             ax = plt.figure().gca()
             plt.plot(np.arange(1, k + 1, dtype=int), accuracy_per_rank, '.-')
+            #　MaxNLocator 会尽量在轴上选择适当数量的主刻度点，以使得图形既美观又清晰
+            # ax.xaxis.set_major_locator(...): 使用 set_major_locator 方法设置 x 轴上主要刻度的定位器。
             ax.xaxis.set_major_locator(MaxNLocator(integer=True))
             plt.xlabel('Number of allowed predictions (k)')
             plt.ylabel('Cumulative accuracy\n(prob. of correct result being in top k pred.)')
