@@ -265,6 +265,7 @@ def main(config):
             metrics_names, metrics_values = zip(*aggr_metrics_val.items())
             metrics.append(list(metrics_values))
 
+        # 如果config['save_all']==False，那么mark=‘last’，意味着下面的代码会不断重写model_last.pth，只保留最后一次的参数
         utils.save_model(os.path.join(config['save_dir'], 'model_{}.pth'.format(mark)), epoch, model, optimizer)
 
         # Learning rate scheduling
